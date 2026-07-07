@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宇树Go2自主导航系统 - 演示视频</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #fff;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #00d4ff, #7b2cbf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: #a0a0a0;
+            font-size: 1.1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #00d4ff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .video-section {
+            margin-bottom: 40px;
+        }
+
+        .video-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .video-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .video-title::before {
+            content: "▶";
+            color: #00d4ff;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 比例 */
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .video-description {
+            margin-top: 20px;
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+
+        .system-diagram {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .system-diagram img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #00d4ff;
+        }
+
+        .feature-desc {
+            color: #a0a0a0;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .video-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>宇树Go2自主导航系统</h1>
+            <p class="subtitle">基于ROS2的多传感器融合四足机器人自主导航解决方案</p>
+            <a href="README.md" class="back-link">← 返回项目说明</a>
+        </header>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-title">实时定位</div>
+                <div class="feature-desc">ICP点云配准<br>亚分米级定位精度</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <div class="feature-title">动态避障</div>
+                <div class="feature-desc">TEB局部规划器<br>障碍物响应&lt;1秒</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚶</div>
+                <div class="feature-title">自主导航</div>
+                <div class="feature-desc">全局路径规划<br>自主到达目标点</div>
+            </div>
+        </div>
+
+        <section class="video-section">
+            <div class="video-card">
+                <h2 class="video-title">实时避障演示</h2>
+                <div class="video-container">
+                    <video controls playsinline>
+                        <source src="实时避障演示.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放，请下载视频查看
+                    </video>
+                </div>
+                <p class="video-description">
+                    演示机器人在动态障碍物环境中的实时避障能力。系统通过TEB局部规划器实时处理障碍物信息，
+                    并生成安全的避障轨迹。
+                </p>
+            </div>
+
+            <div class="video-card">
+                <h2 class="video-title">自主导航演示（无手动操作）</h2>
+                <div class="video-container">
+                    <video controls playsinline>
+                        <source src="自主导航演示（无手动操作）.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放，请下载视频查看
+                    </video>
+                </div>
+                <p class="video-description">
+                    演示完整的自主导航流程：启动定位系统 → 设定目标点 → 自动规划路径 → 执行导航 → 到达目标。
+                    全程无人工干预。
+                </p>
+            </div>
+        </section>
+
+        <section class="system-diagram">
+            <h2 class="video-title">系统架构图</h2>
+            <img src="导航系统结构图.png" alt="导航系统结构图">
+        </section>
+
+        <footer>
+            <p>宇树Go2自主导航系统 | 基于ROS2构建</p>
+        </footer>
+    </div>
+</body>
+</html>
