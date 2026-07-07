@@ -156,7 +156,7 @@ ros2 run fast_lio_localization publish_initial_pose.py 1 0.1 0.3 0 0 0
 
 视频演示页面部署在 GitHub Pages，可直接在浏览器中播放：
 
-**👉 [前往演示页面](https://github.com/busyflag/Navigation-System-for-Quadruped-Robots/blob/main/docs/index.html)**
+**👉 [前往演示页面](https://busyflag.github.io/Navigation-System-for-Quadruped-Robots/blob/main/docs/index.html)**
 
 演示内容包括：
 - 实时避障演示 - 动态障碍物环境中的避障能力
